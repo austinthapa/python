@@ -14,7 +14,6 @@ def count_construct(target, arr, memo = {}):
 
 
 print(count_construct('target', ['t', 'ar', 'ge', 'tar', 'get','targ', 'et', 'arg', 'et']))
-
 print(count_construct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd']))
 print(count_construct('skateboard', ['bo', 'rd', 'ate', 't', 'ska', 'sk', 'boar']))
 print(count_construct('enterapotentpot', ['a', 'p', 'ent', 'enter', 'ot', 'o', 't']))

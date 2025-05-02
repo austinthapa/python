@@ -1,23 +1,19 @@
-def bestSum(target, arr, memo = []):
+def bestSum(target, arr, memo = {}):
+    if target in memo: return memo[target]
     if target == 0: return []
-    if target < 0: return -1
-    
-    shortestLength = None
+    if target < 0: return None
+    s_comb = None
     
     for num in arr:
         remainder = target - num
-        remainderResult = bestSum(remainder, arr, memo)
-        if remainderResult != -1:
-            memo.append(num)
-            if len(memo) < len(shortestLength):
-                pass
+        results = bestSum(remainder, arr, memo)
+        if results is not None:
+            c_comb = results + [num]
             
-        
-    return -1
-
-
-
-
+            if s_comb is None or len(c_comb) < len(s_comb):
+                s_comb = c_comb
+    memo[target] = s_comb
+    return s_comb
 
 print(bestSum(7, [5, 3, 4, 7]))
 print(bestSum(8, [5, 3, 2]))

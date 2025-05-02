@@ -1,14 +1,16 @@
-def bestSum(target, arr, memo = []):
+def howSum(target, arr, memo = []):
+    if target in memo: return memo[target]
     if target < 0: return -1
     if target == 0: return []
     
     for num in arr:
         remainder = target - num
-        remainderResult = bestSum(remainder, arr, memo)
-        if remainderResult != -1:
+        results = howSum(remainder, arr, memo)
+        if results != -1:
             memo.append(num)
             return memo
-    return -1 
+    return -1
+    
 
 
-print(bestSum(100, [3, 9, 13])) 
+print(howSum(100, [7, 9, 17]))

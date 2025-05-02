@@ -5,7 +5,7 @@ def canSum(target, arr, memo = {}):
     
     for num in arr:
         remainder = target - num
-        if canSum(remainder, arr):
+        if canSum(remainder, arr, memo):
             memo[target] = True
             return True
         
